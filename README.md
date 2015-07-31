@@ -12,10 +12,11 @@ Is MultiLingual (Uses System default Language).
 To show Clock Press Alt+C
 
 If someone would have some ideas regarding the development, or found some errors. Please contact me ;)
+
 ## Next Release Todo
-Add HotCorner Mode
-Add Menu in Tray
-Add Color Options (Text, Background,Opacity)
+* Add HotCorner Mode
+* Add Menu in Tray
+* Add Color Options (Text, Background,Opacity)
 
 ## Download
 [=== Download: Floating Clock===](https://github.com/BaalTech/Floating-Clock/releases/latest)
