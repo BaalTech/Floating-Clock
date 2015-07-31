@@ -15,7 +15,7 @@ If someone would have some ideas regarding the development, or found some errors
 
 ## Next Release Todo
 * [x] Add HotCorner Mode
-* [ ] Add Menu in Tray
+* [x] Add Menu in Tray
 * [ ] Add Color Options (Text, Background,Opacity)
 * [ ] Config window
 
