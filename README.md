@@ -17,6 +17,13 @@ If someone would have some ideas regarding the development, or found some errors
 * Add HotCorner Mode
 * Add Menu in Tray
 * Add Color Options (Text, Background,Opacity)
+* Config window
+
+## Todo in future
+* Change Shortcut (Maybe Win+C for Win7 and Earlier in newer is assigned to Cortana or Win8 Clock) and Custom
+* Change Position (Top-Left,Top-Right,Bottom-Left,Bottom-Right)
+* Disable in GameMode or just disable option in tray Menu
+
 
 ## Download
 [=== Download: Floating Clock===](https://github.com/BaalTech/Floating-Clock/releases/latest)
