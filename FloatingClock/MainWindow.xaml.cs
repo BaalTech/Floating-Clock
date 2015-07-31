@@ -17,6 +17,8 @@ namespace FloatingClock
     {
         private NotifyIcon notifyIcon;
         private DispatcherTimer refreshDispatcher;
+        public static MainWindow current;
+        public static bool IsVisible;
 
         /// <summary>
         /// Initialize Application and Main Window
@@ -24,18 +26,22 @@ namespace FloatingClock
         public MainWindow()
         {
             InitializeComponent();
+            current = this;
             Refresh();
             ShowClock();
             InitializeRefreshDispatcher();
             WaitToFullMinuteAndRefresh();
             new HotKey(Key.C, KeyModifier.Alt, key => ShowClock());
             TrayIcon();
+
+            MouseHook._hookID = MouseHook.SetHook(MouseHook._proc);
+
         }
 
         /// <summary>
         /// Prepare Clock to Show 
         /// </summary>
-        private void ShowClock()
+        public void ShowClock()
         {
             SetPositionOnCurrentDisplay();
             Refresh();
@@ -131,7 +137,9 @@ namespace FloatingClock
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 5);
             Application.Current.MainWindow.Visibility = Visibility.Visible;
 
+            IsVisible = true;
             dispatcherTimer.Start();
+            
         }
 
         /// <summary>
@@ -157,6 +165,7 @@ namespace FloatingClock
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 15);
 
             dispatcherTimer.Start();
+            IsVisible = false;
             refreshDispatcher.Stop();
         }
 

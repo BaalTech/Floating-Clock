@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FloatingClock"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml"
+    Exit="App_OnExit">
     <Application.Resources>
         <Image x:Key="TrayIco" Source="clock.ico" />
     </Application.Resources>
