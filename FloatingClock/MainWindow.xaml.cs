@@ -18,7 +18,8 @@ namespace FloatingClock
         private NotifyIcon notifyIcon;
         private DispatcherTimer refreshDispatcher;
         public static MainWindow current;
-        public static bool IsVisible;
+        public static bool windowIsVisible;
+        public static bool HotCornerEnabled;
 
         /// <summary>
         /// Initialize Application and Main Window
@@ -32,10 +33,19 @@ namespace FloatingClock
             InitializeRefreshDispatcher();
             WaitToFullMinuteAndRefresh();
             new HotKey(Key.C, KeyModifier.Alt, key => ShowClock());
+            EnableHotCorner(true);
+
             TrayIcon();
 
-            MouseHook._hookID = MouseHook.SetHook(MouseHook._proc);
 
+        }
+
+        private void EnableHotCorner(bool enable)
+        {
+            if (enable)
+                MouseHook._hookID = MouseHook.SetHook(MouseHook._proc);
+            else MouseHook.UnhookWindowsHookEx(MouseHook._hookID);
+            HotCornerEnabled = enable;
         }
 
         /// <summary>
@@ -106,14 +116,52 @@ namespace FloatingClock
         private void TrayIcon()
         {
             notifyIcon = new NotifyIcon();
-            notifyIcon.Click += notifyIcon_Click;
+            //     notifyIcon.Click += notifyIcon_Click;
+            ContextMenu m_menu;
+
+
+
+            m_menu = new ContextMenu();
+            var ActiveHotCornerItem = new MenuItem("Activate HotCorner", ChangeHotCornerActiveState);
+            ActiveHotCornerItem.Checked = HotCornerEnabled;
+            var OptionsItem = new MenuItem("Options", OpenOptionWindow);
+            OptionsItem.Enabled = false;
+            var ExitItem = new MenuItem("Exit", CloseWindow);
+            m_menu.MenuItems.Add(0, (ActiveHotCornerItem));
+            m_menu.MenuItems.Add(1, (OptionsItem));
+            m_menu.MenuItems.Add(2, (ExitItem));
+            notifyIcon.ContextMenu = m_menu;
+
+
             var streamResourceInfo = Application.GetResourceStream(new Uri("pack://application:,,,/clock.ico"));
             if (streamResourceInfo != null)
                 notifyIcon.Icon = new Icon(streamResourceInfo.Stream);
+
+
             notifyIcon.Visible = true;
+
+
+
             notifyIcon.ShowBalloonTip(5, "Hello " + Environment.UserName,
                 "Press Alt+C to show Clock\nRight Click on Tray to Close", ToolTipIcon.Info);
         }
+
+        private void OpenOptionWindow(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangeHotCornerActiveState(object sender, EventArgs e)
+        {
+            EnableHotCorner(!HotCornerEnabled);
+            (sender as MenuItem).Checked =HotCornerEnabled;
+        }
+
+        private void CloseWindow(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         /// <summary>
         /// Closing app after Right Click
         /// </summary>
@@ -137,9 +185,9 @@ namespace FloatingClock
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 5);
             Application.Current.MainWindow.Visibility = Visibility.Visible;
 
-            IsVisible = true;
+            windowIsVisible = true;
             dispatcherTimer.Start();
-            
+
         }
 
         /// <summary>
@@ -152,7 +200,7 @@ namespace FloatingClock
             if (Application.Current.MainWindow.Opacity < 0.95)
                 Application.Current.MainWindow.Opacity += 0.05;
             else
-                ((DispatcherTimer) sender).Stop();
+                ((DispatcherTimer)sender).Stop();
         }
 
         /// <summary>
@@ -165,7 +213,7 @@ namespace FloatingClock
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 15);
 
             dispatcherTimer.Start();
-            IsVisible = false;
+            windowIsVisible = false;
             refreshDispatcher.Stop();
         }
 
@@ -180,7 +228,7 @@ namespace FloatingClock
                 Application.Current.MainWindow.Opacity -= 0.1;
             else
             {
-                ((DispatcherTimer) sender).Stop();
+                ((DispatcherTimer)sender).Stop();
                 Application.Current.MainWindow.Visibility = Visibility.Collapsed;
             }
         }

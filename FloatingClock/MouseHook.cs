@@ -65,7 +65,7 @@ namespace FloatingClock
         /// <returns></returns>
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (MainWindow.IsVisible || nCode < 0) return CallNextHookEx(_hookID, nCode, wParam, lParam);
+            if (MainWindow.windowIsVisible || nCode < 0) return CallNextHookEx(_hookID, nCode, wParam, lParam);
             var hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
             var activeScreen = Screen.FromPoint(Control.MousePosition);
             if (hookStruct.pt.x >= activeScreen.Bounds.X + activeScreen.Bounds.Width - 25)
