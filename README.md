@@ -1,5 +1,7 @@
 # Floating-Clock
-Floating (Charms) Clock for Windows 10 [Download](https://github.com/BaalTech/Floating-Clock/releases/latest)
+Floating (Charms) Clock for Windows 10 
+
+Download Floating Clock: [=== Download ===](https://github.com/BaalTech/Floating-Clock/releases/latest)
 
 ![Imgur](http://i.imgur.com/CRTL9Rj.png)
 
