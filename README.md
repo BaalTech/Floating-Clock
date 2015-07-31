@@ -14,15 +14,15 @@ To show Clock Press **Alt+C**
 If someone would have some ideas regarding the development, or found some errors. Please contact me ;)
 
 ## Next Release Todo
-* Add HotCorner Mode
-* Add Menu in Tray
-* Add Color Options (Text, Background,Opacity)
-* Config window
+* [x] Add HotCorner Mode
+* [ ] Add Menu in Tray
+* [ ] Add Color Options (Text, Background,Opacity)
+* [ ] Config window
 
 ## Todo in future
-* Change Shortcut (Maybe Win+C for Win7 and Earlier in newer is assigned to Cortana or Win8 Clock) and Custom
-* Change Position (Top-Left,Top-Right,Bottom-Left,Bottom-Right)
-* Disable in GameMode or just disable option in tray Menu
+* [ ] Change Shortcut (Maybe Win+C for Win7 and Earlier in newer is assigned to Cortana or Win8 Clock) and Custom
+* [ ] Change Position (Top-Left,Top-Right,Bottom-Left,Bottom-Right)
+* [ ] Disable in GameMode or just disable option in tray Menu
 
 
 ## Download
