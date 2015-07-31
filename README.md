@@ -3,13 +3,13 @@
 ## Description
 If someone, besides me, miss the charm clock after updating to ‪#‎Windows10‬ I'm happy to report that I have restored it as a separate application. The whole thing weighs only 48KB. 
 
-From the technical point of view, the app supports multiple screens, so if you use several of them and you want to have access to the clock on current one, you will not be disappointed.
+From the technical point of view, the app **supports multiple screens**, so if you use several of them and you want to have access to the clock on current one, you will not be disappointed.
 
-Even if you decide to leave your computer, with the clock opened, it will be updated in real time, no need to open it again, or manual refresh.
+Even if you decide to leave your computer, with the clock opened, it will be **updated in real time**, no need to open it again, or manual refresh.
 
-Is MultiLingual (Uses System default Language).
+Is **MultiLingual** (Uses System default Language).
 
-To show Clock Press Alt+C
+To show Clock Press **Alt+C**
 
 If someone would have some ideas regarding the development, or found some errors. Please contact me ;)
 
