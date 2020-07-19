@@ -13,6 +13,14 @@ To show Clock Press **Alt+C**
 
 If someone would have some ideas regarding the development, or found some errors. Please contact me ;)
 
+## 2020 Update
+* Updated to .Net 4.7.2
+* Added storing settings in registry
+* Added GlassBrush for windows 10 (if enabled in system)
+* Added Seconds
+* Added Ability to disable AutoHide if lost focus
+* Month and Name of the Day is now Capitalized
+
 ## Next Release Todo
 * [x] Add HotCorner Mode
 * [x] Add Menu in Tray

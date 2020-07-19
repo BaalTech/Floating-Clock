@@ -65,7 +65,7 @@ namespace FloatingClock
         /// <returns></returns>
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (MainWindow.windowIsVisible || nCode < 0) return CallNextHookEx(_hookID, nCode, wParam, lParam);
+            if (MainWindow.WindowIsVisible || nCode < 0) return CallNextHookEx(_hookID, nCode, wParam, lParam);
             var hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
             var activeScreen = Screen.FromPoint(Control.MousePosition);
             if (hookStruct.pt.x >= activeScreen.Bounds.X + activeScreen.Bounds.Width - 25)
@@ -86,7 +86,7 @@ namespace FloatingClock
                     (hookStruct.pt.y >
                      activeScreen.Bounds.Y + activeScreen.Bounds.Height - (activeScreen.Bounds.Height / 5)))
                     return CallNextHookEx(_hookID, nCode, wParam, lParam);
-                MainWindow.current.ShowClock();
+                MainWindow.Current.ShowClock();
                 cornerIsActive = false;
             }
             else
