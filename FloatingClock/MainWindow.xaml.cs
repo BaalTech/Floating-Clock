@@ -154,8 +154,12 @@ namespace FloatingClock
         private void SetPositionOnCurrentDisplay()
         {
             var activeScreen = Screen.FromPoint(Control.MousePosition);
-            Application.Current.MainWindow.Top = (activeScreen.Bounds.Height + activeScreen.Bounds.Y) - 140 - 48;
-            Application.Current.MainWindow.Left = activeScreen.Bounds.X + 50;
+            int resHeight = Screen.PrimaryScreen.Bounds.Height;
+            double actualHeight = SystemParameters.PrimaryScreenHeight;
+            double dpi = resHeight / actualHeight; 
+
+            Application.Current.MainWindow.Top = (activeScreen.WorkingArea.Height/dpi + activeScreen.WorkingArea.Y) - 140 - 48;
+            Application.Current.MainWindow.Left = activeScreen.WorkingArea.X + 50;
         }
 
         /// <summary>

@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:FloatingClock"
         mc:Ignorable="d"
         WindowStartupLocation="Manual"
-        Left="50"
 
-        Top="580"
         Title="Charm Clock" Opacity="0.9" Background="#FF111111" Foreground="White" ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True" Topmost="True" ShowInTaskbar="False" Margin="0"
         SizeToContent="WidthAndHeight" Deactivated="Window_Deactivated">
